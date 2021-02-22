@@ -15,7 +15,11 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-              <a href="#" class="brand-logo">theMealDB</a>
+              <a href="#" class="brand-logo red-text">theMealDB</a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="#" class="red-text accent-2" onclick="mealCategories()">Meal Categories</a></li>
+                <li><a href="#" class="red-text" onclick="mealAreas()">Areas</a></li>
+              </ul>
               <form>
                 <div class="input-field right">
                   <input id="search" type="search" placeholder="search meals">
@@ -26,13 +30,22 @@
             </div>
           </nav>
     </header>
-
+    
     <main id="main">
-        <h1 class="header center red-text accent-2">Meals</h1>
+        <h1 class="header center red-text accent-2" id="pageTitle">Meals</h1>
+        <ul class="pagination center">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="waves-effect"><a href="#!" onclick="theMeals('a')">A</a></li>
+            <li class="waves-effect"><a href="#!" onclick="theMeals('b')">B</a></li>
+            <li class="waves-effect"><a href="#!" onclick="theMeals('c')">C</a></li>
+            <li class="waves-effect"><a href="#!" onclick="theMeals('d')">D</a></li>
+            <li class="waves-effect"><a href="#!" onclick="theMeals('e')">E</a></li>
+            <li class="waves-effect"><a href="#!" onclick="theMeals('f')"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
         <div class="container" style="width: fit-content; height: auto;">
-            
+
         </div>
-        
+
     </main>
 
     <footer>
