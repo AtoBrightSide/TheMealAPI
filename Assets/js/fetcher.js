@@ -1,4 +1,4 @@
-const main = document.querySelector('.container');
+const main = document.getElementById('mealsRow');
 
 document.addEventListener('DOMContentLoaded', () => {
     theMeals('a');
@@ -48,33 +48,26 @@ function mealCategories() {
 
 function theMeals(letter) {
     getMeals(letter).then(function (meal) {
-        main.innerHTML = " ";
         console.log(meal.meals);
-        let eltCount = 0, rowCount = 0;
-        for (let i = 0; i < meal.meals.length; i++) {
-            rowCount++;
-            let newRow = document.createElement('div');
-            newRow.className = "row";
-            let output = ``;
-            for (let j = 0; j < 3; j++) {
-                output += `<div class="col s12 m6 l4">
-                                <div class="card">
-                                    <div class="card-image waves-effect waves-block waves-light">
-                                        <img class="activator" src="${meal.meals[eltCount].strMealThumb}">
-                                        <span class="card-title activator white-text text-darken-4">${meal.meals[eltCount].strMeal}</span>
-                                    </div>
-                                    <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                                        <p>Common in areas like ${meal.meals[eltCount].strArea} <br> Category : ${meal.meals[eltCount].strTags}</p>
-                                        <a class="waves-effect waves-light btn" onClick="mealDetails(${meal.meals[eltCount]})">Details</a>
-                                    </div>
-                                </div>
-                            </div>`;
-                eltCount++;
-            }
-            newRow.innerHTML = output;
-            main.appendChild(newRow);
-        }
+        let output = '';
+        meal.meals.forEach(elt => {
+            output += `
+                        <div class="col s10 m4 center-align">
+                        <div class="card center-align" style="height: 500px;">
+                            <div class="card-image center-align">
+                            <img src="${elt.strMealThumb}">
+                            <span class="card-title"></span>
+                            <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                            </div>
+                            <div class="card-content">
+                            <h5>${elt.strMeal}</h5>
+                            <h6>Youtube Link</h6>
+                            <a href="${elt.strYoutube}">${elt.strYoutube}.</a>
+                            </div>
+                        </div>
+                        </div>
+                    `;
+        });
 
         main.innerHTML = output;
     }).catch(function (e) {

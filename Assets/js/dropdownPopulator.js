@@ -27,7 +27,7 @@ async function getMealsCategory() {
 }
 
 async function getMealsMainIng() {
-    let meals = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=lis');
+    let meals = await fetch('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
 
     let jsonVersion3 = await meals.json();
 
@@ -66,17 +66,17 @@ function populatorC() {
 }
 
 function populatorI() {
-    // getMealsMainIng().then(function (lst) {
-    //     console.log(lst.meals);
+    getMealsMainIng().then(function (lst) {
+        console.log(lst.meals);
 
-    //     let output = ''
+        let output = ''
 
-    //     lst.meals.forEach(elt => {
-    //         output += `<li><a href="#!>${elt.strIngredient1}</a></li>`
-    //     });
+        lst.meals.forEach(elt => {
+            output += `<li><a href="#!>${elt.strIngredient}</a></li>`
+        });
 
-    //     ddI.innerHTML = output;
-    // })
+        ddI.innerHTML = output;
+    })
 
 }
 
