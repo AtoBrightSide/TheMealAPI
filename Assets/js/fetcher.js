@@ -26,7 +26,7 @@ function mealDetails(meal) {
 
 function randomMeal() {
     getRandomMeal().then(function (meal) {
-        
+
     })
 }
 
@@ -50,14 +50,14 @@ function theMeals(letter) {
     getMeals(letter).then(function (meal) {
         main.innerHTML = " ";
         console.log(meal.meals);
-        let eltCount = 0, rowCount=0;
-        for (let i=0; i<meal.meals.length;i++) {
+        let eltCount = 0, rowCount = 0;
+        for (let i = 0; i < meal.meals.length; i++) {
             rowCount++;
             let newRow = document.createElement('div');
             newRow.className = "row";
             let output = ``;
-            for(let j=0; j<3; j++){
-                output +=   `<div class="col s12 m6 l4">
+            for (let j = 0; j < 3; j++) {
+                output += `<div class="col s12 m6 l4">
                                 <div class="card">
                                     <div class="card-image waves-effect waves-block waves-light">
                                         <img class="activator" src="${meal.meals[eltCount].strMealThumb}">
@@ -75,7 +75,7 @@ function theMeals(letter) {
             newRow.innerHTML = output;
             main.appendChild(newRow);
         }
-        
+
         main.innerHTML = output;
     }).catch(function (e) {
         console.log(e);

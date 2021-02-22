@@ -2,62 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Assets/css/materialize/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="Assets/css/materialize/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="Assets/css/style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="nav-wrapper">
-              <a href="#" class="brand-logo red-text">theMealDB</a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="#" class="red-text accent-2" onclick="mealCategories()">Meal Categories</a></li>
-                <li><a href="#" class="red-text" onclick="mealAreas()">Areas</a></li>
-              </ul>
-              <form>
-                <div class="input-field right">
-                  <input id="search" type="search" placeholder="search meals">
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>
-            </div>
-          </nav>
-    </header>
-    
-    <main id="main">
-        <h1 class="header center red-text accent-2" id="pageTitle">Meals</h1>
-        <ul class="pagination center">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="waves-effect"><a href="#!" onclick="theMeals('a')">A</a></li>
-            <li class="waves-effect"><a href="#!" onclick="theMeals('b')">B</a></li>
-            <li class="waves-effect"><a href="#!" onclick="theMeals('c')">C</a></li>
-            <li class="waves-effect"><a href="#!" onclick="theMeals('d')">D</a></li>
-            <li class="waves-effect"><a href="#!" onclick="theMeals('e')">E</a></li>
-            <li class="waves-effect"><a href="#!" onclick="theMeals('f')"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
-        <div class="container" style="width: fit-content; height: auto;">
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo red-text">theMealDB</a>
 
-        </div>
+        <form>
+          <div class="input-field right">
+            <input id="search" type="search" placeholder="search meals">
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+  </header>
 
-    </main>
+  <main id="main">
+    <div class="col-s12 center-align">
+      <a class='dropdown-trigger btn center-align purple lighten-1' href='#' data-target='dropdownA'
+        style="width: 16% !important;">Area</a>
+      <ul id='dropdownA' class='dropdown-content right grey-text center-align'>
+      </ul>
+      <a class='dropdown-trigger btn center-align purple lighten-1' href='#' data-target='dropdownA'
+        style="width: 16% !important;">Category</a>
+      <ul id='dropdownA' class='dropdown-content right grey-text center-align'>
+      </ul>
+      <a class='dropdown-trigger btn center-align purple lighten-1' href='#' data-target='dropdownA'
+        style="width: 16% !important;">Main Ingredient</a>
+      <ul id='dropdownA' class='dropdown-content right grey-text center-align'>
+      </ul>
+    </div>
 
-    <footer>
+    <h1 class="header center red-text accent-2" id="pageTitle">Meals</h1>
+    <ul class="pagination center">
+      <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+      <li class="waves-effect"><a href="#!" onclick="theMeals('a')">A</a></li>
+      <li class="waves-effect"><a href="#!" onclick="theMeals('b')">B</a></li>
+      <li class="waves-effect"><a href="#!" onclick="theMeals('c')">C</a></li>
+      <li class="waves-effect"><a href="#!" onclick="theMeals('d')">D</a></li>
+      <li class="waves-effect"><a href="#!" onclick="theMeals('e')">E</a></li>
+      <li class="waves-effect"><a href="#!" onclick="theMeals('f')"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+    <div class="container" style="width: fit-content; height: auto;">
 
-    </footer>
+    </div>
 
-    <!-- <script src="Assets/js/jQuery v3.1.5.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <script src="Assets/js/materialize/js/materialize.min.js"></script>
+  </main>
 
-    <!-- <script src="Assets/js/inits.js"></script> -->
-    <script src="Assets/js/fetcher.js"></script>
+  <footer>
+
+  </footer>
+
+  <!-- <script src="Assets/js/jQuery v3.1.5.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="Assets/js/materialize/js/materialize.min.js"></script>
+
+  <!-- <script src="Assets/js/inits.js"></script> -->
+  <script src="Assets/js/fetcher.js"></script>
 </body>
 
 </html>
