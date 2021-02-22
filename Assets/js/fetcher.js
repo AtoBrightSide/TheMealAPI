@@ -1,6 +1,4 @@
-const main = document.getElementById('main');
-const li = document.createElement('div');
-main.appendChild(li);
+const main = document.querySelector('.container');
 
 document.addEventListener('DOMContentLoaded', () => {
     theMeals();
@@ -16,16 +14,22 @@ async function getMeals() {
 
 function theMeals() {
     getMeals().then(function (meal) {
-        console.log(meal);
-        let output = '';
-
-        meal.meals.forEach(elts => {
-            output += `<img src="${elts.strMealThumb}" style="width: 300px; height: auto;">
-                        <br>
-                        ${elts.strMeal}<br>
-                        `;
-
-        });
+        console.log(meal.meals);
+        let eltCount = 0;
+        for (let i=0; i<meal.meals.length;i++) {
+            let newRow = document.createElement('div');
+            newRow.className = "row";
+            let output = ``;
+            for(let j=0; j<3; j++){
+                output +=   `<div class="col s4">
+                                <img src="${meal.meals[eltCount].strMealThumb}" width="350px" height="350px"/>
+                            </div>`;
+                eltCount++;
+            }
+            newRow.innerHTML = output;
+            main.appendChild(newRow);
+        }
+        
         main.innerHTML = output;
     }).catch(function (e) {
         console.log(e);
