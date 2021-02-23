@@ -1,4 +1,5 @@
 const main = document.getElementById('mealsRow');
+let idCount = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     randomMeal();
@@ -50,28 +51,39 @@ function mealCategories() {
     });
 }
 
+function tryin() {
+    if(document.getElementById(`fav`).innerHTML == 'favorite_border'){
+        document.getElementById(`fav`).innerHTML = 'favorite';  
+    }
+    else{
+        document.getElementById(`fav`).innerHTML = 'favorite_border';
+    }
+}
 
 function theMeals(letter) {
     getMeals(letter).then(function (meal) {
         console.log(meal.meals);
         let output = '';
         meal.meals.forEach(elt => {
-            output += `
-            <div class='col s12 m6 l4'>
-                <div class="card">
+            output += `<div class='col s12 m6 l4'>
+                    <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="${elt.strMealThumb}">
+                    <img class="activator" src="${elt.strMealThumb}">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">${elt.strMeal}<i class="material-icons right">favorite_border</i></span>
+                    <span class="card-title activator grey-text text-darken-4">${elt.strMeal}<i class="material-icons right">more_vert</i></span>
+                    <a href="javascript:void(0)"><i onclick='tryin()' id='fav' class="material-icons">favorite_border</i></a>
                     </div>
-                    <div class="card-reveal" style="background-color: rgba(55,55,55,0.85) !important;">
-                        <span class="card-title white-text text-darken-4">Meal Details<i class="material-icons right">close</i></span>
-                        <p class="white-text text-lighten-1">Common in areas like ${elt.strArea} <br> Category : ${elt.strTags} <br><br> Recipe :  ${elt.strInstructions} <br>Cooking Tutorial Video <br><a href="${elt.strYoutube}" target="_blank">${elt.strYoutube}</a></p>
+                    <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Meal Details<i class="material-icons right">close</i></span>
+                    <p>Category: ${elt.strTags}</p>
+                    <p>Area: ${elt.strArea}</p>
+                    <p>Recipe: ${elt.strInstructions}</p>
+                    <p>Youtube Link: <a href='${elt.strYoutube}'>${elt.strYoutube}</a></p>
                     </div>
                 </div>
-            </div>
-                    `;
+            </div>`;
+                    idCount++;
         });
 
         main.innerHTML = output;
