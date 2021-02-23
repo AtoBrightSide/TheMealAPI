@@ -1,5 +1,6 @@
 const main = document.getElementById('mealsRow');
 let idCount = 0;
+let favs = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     randomMeal();
@@ -51,13 +52,10 @@ function mealCategories() {
     });
 }
 
-function tryin() {
-    if(document.getElementById(`fav`).innerHTML == 'favorite_border'){
-        document.getElementById(`fav`).innerHTML = 'favorite';  
-    }
-    else{
-        document.getElementById(`fav`).innerHTML = 'favorite_border';
-    }
+function addFav(meal) {
+    if (!favs.includes(meal)) favs.push(meal);
+
+    console.log(favs);
 }
 
 function theMeals(letter) {
@@ -70,16 +68,16 @@ function theMeals(letter) {
                     <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="${elt.strMealThumb}">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content" >
                     <span class="card-title activator grey-text text-darken-4">${elt.strMeal}<i class="material-icons right">more_vert</i></span>
-                    <a href="javascript:void(0)"><i onclick='tryin()' id='fav' class="material-icons">favorite_border</i></a>
+                    <a href="javascript:void(0)" onclick="M.toast({html: 'Added to favorites'})" class="btn waves-effect purple darken-3"><i onclick='addFav("${elt.strMeal}")' id='fav' class="material-icons">favorite_border</i></a>
                     </div>
-                    <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Meal Details<i class="material-icons right">close</i></span>
-                    <p>Category: ${elt.strTags}</p>
-                    <p>Area: ${elt.strArea}</p>
-                    <p>Recipe: ${elt.strInstructions}</p>
-                    <p>Youtube Link: <a href='${elt.strYoutube}'>${elt.strYoutube}</a></p>
+                    <div class="card-reveal" style="background-color: rgba(55,55,55,0.9) !important;">
+                    <span class="card-title white-text text-lighten-2">Meal Details<i class="material-icons right">close</i></span>
+                    <p class='white-text text-lighten-2'>Category: ${elt.strTags}</p>
+                    <p class='white-text text-lighten-2'>Area: ${elt.strArea}</p>
+                    <p class='white-text text-lighten-2'>Recipe: ${elt.strInstructions}</p>
+                    <p class='white-text text-lighten-2'>Youtube Link: <a href='${elt.strYoutube}'>${elt.strYoutube}</a></p>
                     </div>
                 </div>
             </div>`;
