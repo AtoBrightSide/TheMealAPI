@@ -1,6 +1,7 @@
 const main = document.getElementById('mealsRow');
 let idCount = 0;
 let favs = [];
+let increment =0;
 
 document.addEventListener('DOMContentLoaded', () => {
     randomMeal();
@@ -53,8 +54,10 @@ function mealCategories() {
 }
 
 function addFav(meal) {
-    if (!favs.includes(meal)) favs.push(meal);
+    if (!(favs.includes(meal))) favs.push(meal);
 
+    sessionStorage.setItem(`obj${increment}`, JSON.stringify(meal));
+    increment++;
     console.log(favs);
 }
 
