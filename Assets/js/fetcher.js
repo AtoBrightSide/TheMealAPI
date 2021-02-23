@@ -1,4 +1,6 @@
 const main = document.getElementById('mealsRow');
+const ddF = document.getElementById('dropdownF');
+
 let idCount = 0;
 let favs = [];
 let increment =0;
@@ -53,8 +55,15 @@ function mealCategories() {
     });
 }
 
+function remove() {
+    alert(ddF.innerHTML);
+}
+
 function addFav(meal) {
-    if (!(favs.includes(meal))) favs.push(meal);
+    if (!(favs.includes(meal))) {
+        favs.push(meal);
+        ddF.innerHTML += `<li>${meal} <button class='btn grey darken-1' onclick='remove()'><i class='material-icons grey darken-1'>remove_circle</i></button></li>`;
+    }
 
     sessionStorage.setItem(`obj${increment}`, JSON.stringify(meal));
     increment++;
