@@ -42,7 +42,7 @@ function populatorA() {
         let output = ''
 
         area.meals.forEach(elt => {
-            output += `<li><a href="#!>${elt.strArea}</a></li>`
+            output += `<li><a href="#">${elt.strArea}</a></li>`
         });
 
         ddA.innerHTML = output;
@@ -57,7 +57,7 @@ function populatorC() {
         let output = ''
 
         cat.meals.forEach(elt => {
-            output += `<li><a href="#!>${elt.strCategory}</a></li>`
+            output += `<li><a href="#">${elt.strCategory}</a></li>`
         });
 
         ddC.innerHTML = output;
@@ -72,7 +72,7 @@ function populatorI() {
         let output = ''
 
         lst.meals.forEach(elt => {
-            output += `<li><a href="#!>${elt.strIngredient}</a></li>`
+            output += `<li><a href="#">${elt.strIngredient}</a></li>`
         });
 
         ddI.innerHTML = output;

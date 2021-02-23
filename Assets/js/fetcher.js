@@ -1,6 +1,8 @@
 const main = document.getElementById('mealsRow');
 
 document.addEventListener('DOMContentLoaded', () => {
+    randomMeal();
+
     theMeals('a');
 });
 async function getRandomMeal() {
@@ -26,7 +28,10 @@ function mealDetails(meal) {
 
 function randomMeal() {
     getRandomMeal().then(function (meal) {
+        console.log(meal.meals[0].strMealThumb);
+        let myImg = document.querySelector('.responsive-img');
 
+        myImg.src = meal.meals[0].strMealThumb;
     })
 }
 
@@ -52,20 +57,17 @@ function theMeals(letter) {
         let output = '';
         meal.meals.forEach(elt => {
             output += `
-                        <div class="col s10 m4 center-align">
-                        <div class="card center-align" style="height: 500px;">
-                            <div class="card-image center-align">
-                            <img src="${elt.strMealThumb}">
-                            <span class="card-title"></span>
-                            <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
-                            </div>
-                            <div class="card-content">
-                            <h5>${elt.strMeal}</h5>
-                            <h6>Youtube Link</h6>
-                            <a href="${elt.strYoutube}">${elt.strYoutube}.</a>
-                            </div>
-                        </div>
-                        </div>
+            <div class='col s12 m6 l4'>
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="${elt.strMealThumb}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">${elt.strMeal}<i class="material-icons right">favorite_border</i></span>
+                    </div>
+                    
+                </div>
+            </div>
                     `;
         });
 
