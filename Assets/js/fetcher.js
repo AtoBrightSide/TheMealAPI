@@ -65,7 +65,10 @@ function theMeals(letter) {
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">${elt.strMeal}<i class="material-icons right">favorite_border</i></span>
                     </div>
-                    
+                    <div class="card-reveal" style="background-color: rgba(55,55,55,0.85) !important;">
+                        <span class="card-title white-text text-darken-4">Meal Details<i class="material-icons right">close</i></span>
+                        <p class="white-text text-lighten-1">Common in areas like ${elt.strArea} <br> Category : ${elt.strTags} <br><br> Recipe :  ${elt.strInstructions} <br>Cooking Tutorial Video <br><a href="${elt.strYoutube}" target="_blank">${elt.strYoutube}</a></p>
+                    </div>
                 </div>
             </div>
                     `;
