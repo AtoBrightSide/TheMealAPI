@@ -33,8 +33,6 @@ async function getMealsMainIng() {
 
     return jsonVersion3;
 }
-
-
 //functions that populate the dropdowns
 //-----------------------------------------------------------------------------------------------------------------------------------------
 function populatorA() {

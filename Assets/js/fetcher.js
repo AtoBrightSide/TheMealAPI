@@ -15,18 +15,21 @@ async function getRandomMeal() {
     let jsonVersion = await meals.json();
     return jsonVersion;
 }
+
 async function getMeals(letter) {
     let mealByLetter = "https://www.themealdb.com/api/json/v1/1/search.php?f=" + letter;
     let meals = await fetch(mealByLetter);
     let jsonVersion = await meals.json();
     return jsonVersion;
 }
+
 function randomMeal() {
     getRandomMeal().then(function (meal) {
         console.log(meal.meals[0].strMealThumb);
         let myImg = document.querySelector('.responsive-img');
 
         myImg.src = meal.meals[0].strMealThumb;
+        myImg.title = "The " + meal.meals[0].strMeal + " u";
     })
 }
 function filterMeals(filter, num) {
@@ -70,9 +73,11 @@ function filterMeals(filter, num) {
         })
     }  
 }
+
 function remove() {
     alert(ddF.innerHTML);
 }
+
 function addFav(meal) {
     if (!(favs.includes(meal))) {
         favs.push(meal);
@@ -83,6 +88,7 @@ function addFav(meal) {
     increment++;
     console.log(favs);
 }
+
 function theMeals(letter) {
     getMeals(letter).then(function (meal) {
         console.log(meal.meals);
