@@ -44,7 +44,7 @@ function populatorA() {
         let output = ''
 
         area.meals.forEach(elt => {
-            output += `<li><a href="#" onclick="filterMeals('${elt.strArea}')">${elt.strArea}</a></li>`
+            output += `<li><a href="#" onclick="filterMeals('${elt.strArea}',1)">${elt.strArea}</a></li>`
         });
 
         ddA.innerHTML = output;
@@ -59,7 +59,7 @@ function populatorC() {
         let output = ''
 
         cat.meals.forEach(elt => {
-            output += `<li><a href="#" onclick="filterMeals('${elt.strArea}')">${elt.strCategory}</a></li>`
+            output += `<li><a href="#" onclick="filterMeals('${elt.strCategory}',2)">${elt.strCategory}</a></li>`
         });
 
         ddC.innerHTML = output;
@@ -74,7 +74,7 @@ function populatorI() {
         let output = ''
 
         lst.meals.forEach(elt => {
-            output += `<li><a href="#" onclick="filterMeals('${elt.strArea}')">${elt.strIngredient}</a></li>`
+            output += `<li><a href="#" onclick="filterMeals('${elt.strIngredient}',3)">${elt.strIngredient}</a></li>`
         });
 
         ddI.innerHTML = output;
