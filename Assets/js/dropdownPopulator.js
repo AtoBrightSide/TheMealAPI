@@ -46,10 +46,8 @@ function populatorA() {
         area.meals.forEach(elt => {
             output += `<li><a href="#" onclick="filterMeals('${elt.strArea}',1)">${elt.strArea}</a></li>`
         });
-
         ddA.innerHTML = output;
     })
-
 }
 
 function populatorC() {
@@ -81,4 +79,3 @@ function populatorI() {
     })
 
 }
-

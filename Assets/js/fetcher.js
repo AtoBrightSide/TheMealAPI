@@ -15,14 +15,12 @@ async function getRandomMeal() {
     let jsonVersion = await meals.json();
     return jsonVersion;
 }
-
 async function getMeals(letter) {
     let mealByLetter = "https://www.themealdb.com/api/json/v1/1/search.php?f=" + letter;
     let meals = await fetch(mealByLetter);
     let jsonVersion = await meals.json();
     return jsonVersion;
 }
-
 function randomMeal() {
     getRandomMeal().then(function (meal) {
         console.log(meal.meals[0].strMealThumb);
@@ -31,7 +29,6 @@ function randomMeal() {
         myImg.src = meal.meals[0].strMealThumb;
     })
 }
-
 function filterMeals(filter, num) {
     document.getElementById('todaysMeal').innerHTML = " ";
     if(num==1)              document.getElementById('pageTitle').innerHTML = filter + " meals";
@@ -71,25 +68,21 @@ function filterMeals(filter, num) {
                 }
             })
         })
-    } 
-    // main.innerHTML = output;  
+    }  
 }
-
 function remove() {
     alert(ddF.innerHTML);
 }
-
 function addFav(meal) {
     if (!(favs.includes(meal))) {
         favs.push(meal);
-        ddF.innerHTML += `<li style="display: inline;"><a href="#">${meal}</a></li>`;
+        ddF.innerHTML += `<li style="display: inline;"><a href="#">${meal}<i class="small material-icons">remove</i></a></li>`;
     }
 
     sessionStorage.setItem(`obj${increment}`, JSON.stringify(meal));
     increment++;
     console.log(favs);
 }
-
 function theMeals(letter) {
     getMeals(letter).then(function (meal) {
         console.log(meal.meals);
