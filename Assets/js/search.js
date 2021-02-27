@@ -20,7 +20,7 @@ searchBar.addEventListener('keyup', () => {
             console.log(meal.meals);
             let output = '';
             meal.meals.forEach(elt => {
-                output +=   `<div class='col s12 m6 l4'>
+                output += `<div class='col s12 m6 l4'>
                                 <div class="card">
                                     <div class="card-image waves-effect waves-block waves-light">
                                         <img class="activator" src="${elt.strMealThumb}">
@@ -47,6 +47,12 @@ searchBar.addEventListener('keyup', () => {
 
     }
 
-    if (searchBar.value != '')      theMeals(searchBar.value);
-    else                            return;
+    if (searchBar.value != '') {
+        searchBar.style.backgroundColor = "#eee";
+        theMeals(searchBar.value);
+    }
+    else {
+        searchBar.style.backgroundColor = "red";
+        return;
+    }
 });
