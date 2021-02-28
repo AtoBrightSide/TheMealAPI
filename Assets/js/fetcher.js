@@ -3,7 +3,7 @@ const ddF = document.getElementById('dropdownF');
 
 let idCount = 0;
 let favs = [];
-let increment =0;
+let increment = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
     randomMeal();
@@ -34,21 +34,21 @@ function randomMeal() {
 }
 function filterMeals(filter, num) {
     document.getElementById('todaysMeal').innerHTML = " ";
-    if(num==1)              document.getElementById('pageTitle').innerHTML = filter + " meals";
-    else if(num==2)         document.getElementById('pageTitle').innerHTML = "Meals in the " + filter + " category";
-    else                    document.getElementById('pageTitle').innerHTML = "Meals that contain " + filter;
+    if (num == 1) document.getElementById('pageTitle').innerHTML = filter + " meals";
+    else if (num == 2) document.getElementById('pageTitle').innerHTML = "Meals in the " + filter + " category";
+    else document.getElementById('pageTitle').innerHTML = "Meals that contain " + filter;
     document.querySelector('.pagination').innerHTML = " ";
     main.innerHTML = " ";
     let output = ``;
-    for (let i=97;i<123;i++){
-        if(i==120||i==122||i==117||i==113)    continue;
-        
+    for (let i = 97; i < 123; i++) {
+        if (i == 120 || i == 122 || i == 117 || i == 113) continue;
+
         getMeals(String.fromCharCode(i)).then(function (meal) {
-            
+
             // console.log(filter);
             meal.meals.forEach(elt => {
                 // let cat = elt.strCategory;   
-                if (filter==elt.strArea || filter==elt.strCategory || filter==elt.strIngredient) {
+                if (filter == elt.strArea || filter == elt.strCategory || filter == elt.strIngredient) {
                     output = `<div class='col s12 m6 l4'>
                                     <div class="card">
                                         <div class="card-image waves-effect waves-block waves-light">
@@ -71,7 +71,7 @@ function filterMeals(filter, num) {
                 }
             })
         })
-    }  
+    }
 }
 
 function remove() {
@@ -81,13 +81,15 @@ function remove() {
 function addFav(meal) {
     if (!(favs.includes(meal))) {
         favs.push(meal);
-        ddF.innerHTML += `<li style="display: inline;"><a href="#">${meal}<i class="small material-icons">remove</i></a></li>`;
+        ddF.innerHTML += `<li style="display: block;"><a href="#">${meal}</a></li>`;
     }
 
     sessionStorage.setItem(`obj${increment}`, JSON.stringify(meal));
     increment++;
     console.log(favs);
 }
+
+
 
 function theMeals(letter) {
     getMeals(letter).then(function (meal) {
@@ -112,7 +114,7 @@ function theMeals(letter) {
                     </div>
                 </div>
             </div>`;
-                    idCount++;
+            idCount++;
         });
 
         main.innerHTML = output;
