@@ -5,11 +5,13 @@ let idCount = 0;
 let favs = [];
 let increment = 0;
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     randomMeal();
-
     theMeals('a');
 });
+
 async function getRandomMeal() {
     let meals = await fetch('https://www.themealdb.com/api/json/v1/1/random.php');
     let jsonVersion = await meals.json();
@@ -74,11 +76,8 @@ function filterMeals(filter, num) {
     }
 }
 
-function remove() {
-    alert(ddF.innerHTML);
-}
-
 function addFav(meal) {
+
     if (!(favs.includes(meal))) {
         favs.push(meal);
         ddF.innerHTML += `<li style="display: block;"><a href="#">${meal}</a></li>`;
@@ -89,7 +88,11 @@ function addFav(meal) {
     console.log(favs);
 }
 
-
+function removeFavs() {
+    console.log("yolo");
+    alert("hi")
+    ddF.innerHTML = ''
+}
 
 function theMeals(letter) {
     getMeals(letter).then(function (meal) {
@@ -122,4 +125,6 @@ function theMeals(letter) {
         console.log(e);
     });
 
+
 }
+
