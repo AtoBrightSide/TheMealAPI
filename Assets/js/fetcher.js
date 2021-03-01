@@ -115,7 +115,7 @@ function theMeals(letter) {
                     <p class='white-text text-lighten-2'>Recipe: ${elt.strInstructions}</p>
                     
                     <p class='white-text text-lighten-2'>Youtube Link: <a href='${elt.strYoutube}'>${elt.strYoutube}</a></p>
-                    <p class='white-text text-lighten-2'>Main Ingredient: ${elt.strIngredient[0]}</p>
+                    <p class='white-text text-lighten-2'>Main Ingredients : ${elt.strIngredient1} ,${elt.strIngredient2}, ${elt.strIngredient3}, ${elt.strIngredient4}, ${elt.strIngredient5}, ${elt.strIngredient6}</p>
                     </div>
                 </div>
             </div>`;
