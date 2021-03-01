@@ -113,7 +113,9 @@ function theMeals(letter) {
                     <p class='white-text text-lighten-2'>Category: ${elt.strTags}</p>
                     <p class='white-text text-lighten-2'>Area: ${elt.strArea}</p>
                     <p class='white-text text-lighten-2'>Recipe: ${elt.strInstructions}</p>
+                    
                     <p class='white-text text-lighten-2'>Youtube Link: <a href='${elt.strYoutube}'>${elt.strYoutube}</a></p>
+                    <p class='white-text text-lighten-2'>Main Ingredient: ${elt.strIngredient[0]}</p>
                     </div>
                 </div>
             </div>`;

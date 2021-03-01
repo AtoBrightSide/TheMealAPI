@@ -42,7 +42,7 @@ function populatorA() {
         let output = ''
 
         area.meals.forEach(elt => {
-            output += `<li><a href="#" onclick="filterMeals('${elt.strArea}',1)">${elt.strArea}</a></li>`
+            output += `<li><a href="#" onclick="filterMeals('${elt.strArea}',1)" style= "border: solid 1px">${elt.strArea}</a></li>`
         });
         ddA.innerHTML = output;
     })
