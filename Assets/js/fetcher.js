@@ -5,7 +5,8 @@ let idCount = 0;
 let favs = [];
 let increment = 0;
 
-
+//we have added a new user on git and this is a simple trial of pushing with this machine
+const abraham = "Abraham";
 
 document.addEventListener('DOMContentLoaded', () => {
     randomMeal();
